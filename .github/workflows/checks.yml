@@ -1,0 +1,21 @@
+name: checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  powershell-and-controller:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Static checks
+        shell: powershell
+        run: .\tests\StaticChecks.ps1
+      - name: Build controller and run self-tests
+        shell: powershell
+        run: .\Build-AutoLimiter.ps1
+

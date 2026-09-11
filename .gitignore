@@ -1,0 +1,25 @@
+# Build output
+x64/
+deploy/
+*.obj
+*.pdb
+*.tlog
+*.recipe
+*.nativecodeanalysis.xml
+*.Build.CppClean.log
+
+# Signing material and packaged binaries
+*.pfx
+*.pvk
+*.cer
+*.sys
+*.exe
+*.zip
+
+# Local logs and editor files
+*.log
+.vs/
+.vscode/
+Thumbs.db
+Desktop.ini
+
