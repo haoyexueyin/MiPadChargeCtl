@@ -1,0 +1,29 @@
+name: publish release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify release package
+        shell: bash
+        run: sha256sum --check release-assets/SHA256SUMS
+      - name: Create GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh release create "$GITHUB_REF_NAME"
+          release-assets/MiPadChargeCtl_v5.2_watchdog_50-80_x64_testsigned_20260911.zip
+          release-assets/SHA256SUMS
+          --verify-tag
+          --title "MiPadChargeCtl v5.2 — firmware-reset guard"
+          --notes-file docs/RELEASE_NOTES_v5.2.md

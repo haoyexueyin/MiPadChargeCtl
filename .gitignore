@@ -15,6 +15,7 @@ deploy/
 *.sys
 *.exe
 *.zip
+!release-assets/MiPadChargeCtl_v5.2_watchdog_50-80_x64_testsigned_20260911.zip
 
 # Local logs and editor files
 *.log
@@ -22,4 +23,3 @@ deploy/
 .vscode/
 Thumbs.db
 Desktop.ini
-
